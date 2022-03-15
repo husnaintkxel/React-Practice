@@ -1,0 +1,29 @@
+.right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 20%;
+    height: 100%;
+    padding-top: 5vh;
+}
+
+.label {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+    left: 2vw;
+    position: relative;
+    margin-bottom: 1vh;
+}
+
+.value {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    color: #0180E8;
+}

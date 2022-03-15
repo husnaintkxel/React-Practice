@@ -1,0 +1,27 @@
+.central-panel-container {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #C4C4C4;
+    width: 55%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    margin-left: 2.5vw;
+}
+
+.editor {
+    display: flex;
+    align-self: center;
+    width: 90%;
+    height: 70%;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+}

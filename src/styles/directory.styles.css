@@ -1,0 +1,113 @@
+@keyframes expand-animation {
+    from {height: 0vh;}
+    to {height: 1.5vh;}
+}
+
+@keyframes collapse-animation {
+    from {height: 1.5vh;}
+    to {height: 0vh;}
+}
+
+.dir-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 25%;
+    height: auto;
+}
+
+.search-tool {
+    display: flex;
+    justify-content: flex-start;
+    height: 15%;
+}
+
+.tree {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 2vw;
+}
+
+.collapse {
+    height: 0vh;
+    animation-name: collapse-animation;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-duration: 2s;
+}
+
+.expand {
+    max-height: 100vh;
+    animation-name: expand-animation;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-duration: 2s;
+}
+
+.root-node {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.nodes {
+    display: inline-table;
+    position: relative;
+    color: #98ABBA;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 3vh;
+    height: 1.5vh;
+    padding-left: 3vw;
+}
+
+.selected-node {
+    color: #0087F5;
+}
+
+span.nodes { cursor: pointer; }
+
+span.nodes:hover { color: #0087F5; }
+
+/* .nodes:after {
+    position: absolute;
+    top: -22.2px;
+    left: -2.7vw;
+    display: flex;
+    height: 1.8vh;
+    width: 1.7vw;
+    z-index: 0;
+    border-bottom: 2px solid #2F3841;
+    border-left: 2px solid #2F3841;
+    border-radius: 0 0 0 0.3em;
+    content: '';
+}
+
+span.nodes:after { border-bottom: 0; } */
+
+/* :checked ~ span.nodes:after {
+    border-radius: 0 .3em 0 0;
+    border-top: 1px solid #2F3841;
+    border-right: 1px solid #2F3841;
+    border-bottom: 0;
+    border-left: 0;
+    z-index: 0;
+    bottom: 0;
+    top: 0.5em;
+    height: auto;
+} */
+
+.icon {
+    position: relative;
+    width: 1vh;
+    height: 1vh;
+    left: 2.1vw;
+    top: 0vh;
+    z-index: 1;
+}
