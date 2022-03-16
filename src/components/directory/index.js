@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from '../search-bar';
 import '../../styles/directory.styles.css';
 import TriangleDown from '../../assets/icons/Triangle-Down.svg';
@@ -25,6 +25,9 @@ const Directory = ({jsonVal, setSelectedNode}) => {
     const [ json, setJson ] = useState(validJson);
     id = 0;
     addLevelsInTree(validJson, depth);
+    useEffect(() => {
+        console.log('TREE UPDATED');
+    })
     return(
         <div className="dir-container">
             <div className='search-tool'>
@@ -50,7 +53,7 @@ const Tree = ({node, setJson, setSelectedNode}) => {
                     className='nodes'
                     onClick={() => setSelectedNode(nodeSelected(node?.name, node?.depth - 1))}
                 >
-                    <label className={node?.isSelected && ('selected-node')}>{node?.name}</label>
+                    <label className={node?.isSelected ? 'selected-node' : ''}>{node?.name}</label>
                 </span>
             <div 
                 className={isExpand ? 'nodes expand' : 'nodes collapse'}
