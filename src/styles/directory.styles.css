@@ -45,6 +45,19 @@
     animation-duration: 2s;
 }
 
+.root-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 4vw;
+    height: 2vh;
+    top: 1.8vh;
+    left: -2.7vw;
+    background: #27323F;
+    border-radius: 4px;
+}
+
 .root-node {
     font-family: 'Roboto';
     font-style: normal;
@@ -107,6 +120,15 @@ span.nodes:after { border-bottom: 0; } */
     position: relative;
     width: 1vh;
     height: 1vh;
+    left: 2.1vw;
+    top: 0vh;
+    z-index: 1;
+}
+
+.root-icon {
+    position: relative;
+    width: 2.5vh;
+    height: 2.5vh;
     left: 2.1vw;
     top: 0vh;
     z-index: 1;

@@ -3,6 +3,7 @@ import SearchBar from '../search-bar';
 import '../../styles/directory.styles.css';
 import TriangleDown from '../../assets/icons/Triangle-Down.svg';
 import TriangleRight from '../../assets/icons/Triangle-Right.svg';
+import Layers from '../../assets/icons/Layers.svg';
 
 
 function validateJson(value) {
@@ -15,13 +16,15 @@ function validateJson(value) {
     }
 }
 
-let validJson;
 let id;
 let selectedNode;
 
 const Directory = ({jsonVal, setSelectedNode}) => {
     let depth = 0;
-    validJson = validateJson(jsonVal);
+    const validJson = validateJson(jsonVal);
+    if (validJson) {
+        validJson.isRoot = true;
+    }
     const [ json, setJson ] = useState(validJson);
     id = 0;
     addLevelsInTree(validJson, depth);
@@ -42,7 +45,15 @@ const Tree = ({node, setJson, setSelectedNode}) => {
     const [isExpand, setExpand] = useState(true);
     return (
         <div>
-            {node?.children?.length && (<img 
+            {node?.isRoot ? 
+            <div className='root-icon-container'>
+                <img 
+                    src={Layers}
+                    className='root-icon'
+                    alt=''
+                />
+            </div>
+            : node?.children?.length && (<img 
                 className='icon'
                 src={!isExpand ? TriangleRight : TriangleDown} 
                 alt=''
@@ -50,14 +61,19 @@ const Tree = ({node, setJson, setSelectedNode}) => {
             />)}
                 <span
                     key={node?.id}
-                    className='nodes'
+                    className={!node?.isRoot ? 'nodes' : 'root-node'}
+                    style={{paddingLeft: node?.children?.length ? '2.5vw' : '3vw'}}
                     onClick={() => setSelectedNode(nodeSelected(node?.name, node?.depth - 1))}
                 >
                     <label className={node?.isSelected ? 'selected-node' : ''}>{node?.name}</label>
                 </span>
             <div 
                 className={isExpand ? 'nodes expand' : 'nodes collapse'}
-                style={{display: isExpand ? 'block' : 'none', paddingLeft: '3vw', paddingBottom: node?.children?.length ? `${2.5 * node?.children?.length}vh` : '0vh'}}
+                style={{
+                    display: isExpand ? 'block' : 'none',
+                    paddingLeft: '3vw',
+                    paddingBottom: node?.children?.length ? `${2.5 * node?.children?.length}vh` : '0vh'
+                }}
             >
                 {node?.children?.map((child) => (
                     <Tree node={child} setJson={setJson} setSelectedNode={setSelectedNode} />
